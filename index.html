@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
     <title>PDS - Pak Digital Services</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
@@ -20,69 +20,46 @@
             --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.07), 0 2px 4px -2px rgba(0, 0, 0, 0.05);
             --shadow-lg: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.06);
             --shadow-xl: 0 20px 40px -8px rgba(0, 0, 0, 0.12), 0 12px 16px -8px rgba(0, 0, 0, 0.06);
-            --shadow-glow: 0 0 0 4px rgba(79, 70, 229, 0.08);
             --radius-sm: 10px;
             --radius-md: 14px;
             --radius-lg: 18px;
             --radius-xl: 22px;
-            --transition-fast: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-            --transition-smooth: 0.35s cubic-bezier(0.4, 0, 0.2, 1);
-            --font-xs: 0.75rem;
-            --font-sm: 0.85rem;
-            --font-base: 0.95rem;
-            --font-md: 1.05rem;
-            --font-lg: 1.25rem;
-            --font-xl: 1.6rem;
-            --font-2xl: 2rem;
-            --font-3xl: 2.5rem;
+            --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            --font-xs: 0.72rem;
+            --font-sm: 0.82rem;
+            --font-base: 0.92rem;
+            --font-md: 1.02rem;
+            --font-lg: 1.2rem;
+            --font-xl: 1.55rem;
+            --font-2xl: 1.9rem;
         }
 
-        *,
-        *::before,
-        *::after {
+        * {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
         }
-
         html {
             scroll-behavior: smooth;
-            -webkit-text-size-adjust: 100%;
-            scrollbar-width: thin;
-            scrollbar-color: #cbd5e1 transparent;
         }
-
-        ::-webkit-scrollbar {
-            width: 6px;
-        }
-        ::-webkit-scrollbar-track {
-            background: transparent;
-        }
-        ::-webkit-scrollbar-thumb {
-            background: #cbd5e1;
-            border-radius: 3px;
-        }
-
         body {
-            font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-            background-color: var(--bg);
+            font-family: 'Poppins', sans-serif;
+            background: var(--bg);
             color: var(--text-primary);
             line-height: 1.6;
             min-height: 100vh;
             overflow-x: hidden;
             -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
             position: relative;
         }
 
-        /* Background decorative orbs */
         .bg-decoration {
             position: fixed;
             pointer-events: none;
             z-index: 0;
             border-radius: 50%;
             filter: blur(100px);
-            opacity: 0.12;
+            opacity: 0.11;
         }
         .bg-orb-1 {
             width: 500px;
@@ -100,17 +77,6 @@
             left: -100px;
             animation: floatOrb2 22s ease-in-out infinite;
         }
-        .bg-orb-3 {
-            width: 350px;
-            height: 350px;
-            background: radial-gradient(circle, #c4b5fd 0%, transparent 70%);
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            animation: floatOrb3 20s ease-in-out infinite;
-            opacity: 0.07;
-        }
-
         @keyframes floatOrb1 {
             0%,
             100% {
@@ -135,17 +101,7 @@
                 transform: translate(-25px, 45px) scale(0.92);
             }
         }
-        @keyframes floatOrb3 {
-            0%,
-            100% {
-                transform: translate(-50%, -50%) scale(1);
-            }
-            50% {
-                transform: translate(-50%, -50%) scale(1.2);
-            }
-        }
 
-        /* Header */
         .header {
             position: sticky;
             top: 0;
@@ -154,12 +110,12 @@
             backdrop-filter: blur(18px);
             -webkit-backdrop-filter: blur(18px);
             border-bottom: 1px solid rgba(226, 232, 240, 0.7);
-            transition: var(--transition-smooth);
             padding: 0 1rem;
+            transition: var(--transition);
         }
         .header.scrolled {
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
-            background: rgba(255, 255, 255, 0.88);
+            background: rgba(255, 255, 255, 0.9);
         }
         .header-inner {
             max-width: 1280px;
@@ -167,21 +123,21 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
-            padding: 0.75rem 0;
-            gap: 1rem;
+            padding: 0.7rem 0;
+            gap: 0.8rem;
             flex-wrap: wrap;
         }
         .header-brand {
             display: flex;
             align-items: center;
-            gap: 0.6rem;
+            gap: 0.55rem;
             text-decoration: none;
             color: var(--text-primary);
             flex-shrink: 0;
         }
         .header-logo-icon {
-            width: 42px;
-            height: 42px;
+            width: 40px;
+            height: 40px;
             background: var(--brand-gradient);
             border-radius: var(--radius-sm);
             display: flex;
@@ -189,48 +145,39 @@
             justify-content: center;
             color: #fff;
             font-weight: 700;
-            font-size: 1.1rem;
+            font-size: 1rem;
             letter-spacing: -0.5px;
-            flex-shrink: 0;
-            box-shadow: 0 4px 14px rgba(79, 70, 229, 0.3);
+            box-shadow: 0 4px 12px rgba(79, 70, 229, 0.3);
         }
         .header-title-group {
-            display: flex;
-            flex-direction: column;
-            line-height: 1.2;
+            line-height: 1.15;
         }
         .header-title {
             font-weight: 700;
             font-size: var(--font-md);
-            color: var(--text-primary);
             letter-spacing: -0.3px;
             white-space: nowrap;
         }
         .header-subtitle {
             font-size: var(--font-xs);
             color: var(--text-secondary);
-            font-weight: 400;
             white-space: nowrap;
         }
         .header-tag {
             display: inline-flex;
             align-items: center;
             gap: 0.35rem;
-            background: #f1f5f9;
-            padding: 0.4rem 0.85rem;
+            background: #eef2ff;
+            color: var(--brand-indigo);
+            padding: 0.35rem 0.8rem;
             border-radius: 20px;
             font-size: var(--font-xs);
             font-weight: 500;
-            color: var(--brand-indigo);
             white-space: nowrap;
-            transition: var(--transition-fast);
             flex-shrink: 0;
         }
-        .header-tag:hover {
-            background: #eef2ff;
-        }
         .header-tag .fa-circle {
-            font-size: 0.4rem;
+            font-size: 0.35rem;
             color: #22c55e;
             animation: pulseDot 2s ease-in-out infinite;
         }
@@ -240,11 +187,10 @@
                 opacity: 1;
             }
             50% {
-                opacity: 0.4;
+                opacity: 0.35;
             }
         }
 
-        /* Main content wrapper */
         .main-wrapper {
             position: relative;
             z-index: 1;
@@ -253,11 +199,9 @@
             padding: 0 1.25rem;
         }
 
-        /* Hero Section */
         .hero {
             text-align: center;
-            padding: 3.5rem 1rem 2.5rem;
-            position: relative;
+            padding: 3rem 1rem 2rem;
         }
         .hero-badge {
             display: inline-flex;
@@ -265,43 +209,41 @@
             gap: 0.5rem;
             background: #eef2ff;
             color: var(--brand-indigo);
-            padding: 0.4rem 1rem;
+            padding: 0.35rem 0.9rem;
             border-radius: 25px;
             font-size: var(--font-sm);
             font-weight: 600;
             letter-spacing: 0.3px;
-            margin-bottom: 1.25rem;
+            margin-bottom: 1rem;
             border: 1px solid rgba(79, 70, 229, 0.12);
         }
         .hero-badge .fa-star {
-            font-size: 0.7rem;
+            font-size: 0.65rem;
             color: #f59e0b;
         }
         .hero-title {
-            font-size: clamp(1.8rem, 4.5vw, var(--font-3xl));
+            font-size: clamp(1.7rem, 4.5vw, var(--font-2xl));
             font-weight: 800;
             letter-spacing: -1px;
             line-height: 1.15;
             color: var(--text-primary);
-            margin-bottom: 0.75rem;
+            margin-bottom: 0.6rem;
             background: var(--brand-gradient);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
         }
         .hero-subtitle {
-            font-size: var(--font-md);
+            font-size: var(--font-base);
             color: var(--text-secondary);
-            max-width: 550px;
-            margin: 0 auto 0.5rem;
-            font-weight: 400;
+            max-width: 520px;
+            margin: 0 auto;
             line-height: 1.5;
         }
 
-        /* Section heading */
         .section-heading {
             text-align: center;
-            margin-bottom: 2.5rem;
+            margin: 2.2rem 0 1.8rem;
         }
         .section-heading-label {
             display: inline-block;
@@ -310,10 +252,10 @@
             color: var(--brand-indigo);
             text-transform: uppercase;
             letter-spacing: 1.5px;
-            margin-bottom: 0.4rem;
+            margin-bottom: 0.3rem;
         }
         .section-heading-title {
-            font-size: clamp(1.4rem, 3.5vw, var(--font-2xl));
+            font-size: clamp(1.35rem, 3.5vw, var(--font-xl));
             font-weight: 700;
             letter-spacing: -0.5px;
             color: var(--text-primary);
@@ -326,49 +268,40 @@
             bottom: -8px;
             left: 50%;
             transform: translateX(-50%);
-            width: 50px;
-            height: 3.5px;
+            width: 45px;
+            height: 3px;
             background: var(--brand-gradient);
             border-radius: 4px;
         }
 
-        /* Services Grid */
         .services-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-            gap: 1.25rem;
-            padding-bottom: 3rem;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 1.1rem;
+            padding-bottom: 1.5rem;
         }
 
-        /* Service Card */
         .service-card {
             background: var(--surface);
             border-radius: var(--radius-lg);
-            padding: 1.6rem 1.25rem 1.4rem;
+            padding: 1.4rem 1.1rem 1.2rem;
             text-align: center;
             cursor: pointer;
-            transition: var(--transition-smooth);
+            transition: var(--transition);
             position: relative;
             border: 1px solid rgba(226, 232, 240, 0.6);
             box-shadow: var(--shadow-sm);
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 0.9rem;
-            opacity: 0;
-            transform: translateY(30px);
-            will-change: transform, opacity, box-shadow;
+            gap: 0.7rem;
             outline: none;
             -webkit-tap-highlight-color: transparent;
         }
-        .service-card.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
         .service-card:hover,
         .service-card:focus-visible {
-            transform: translateY(-6px);
-            box-shadow: var(--shadow-xl), var(--shadow-glow);
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-xl), 0 0 0 4px rgba(79, 70, 229, 0.08);
             border-color: rgba(79, 70, 229, 0.18);
         }
         .service-card:focus-visible {
@@ -377,129 +310,226 @@
         }
         .service-card:active {
             transform: scale(0.97);
-            transition: var(--transition-fast);
         }
-
-        /* Icon circle */
         .service-icon-circle {
-            width: 64px;
-            height: 64px;
+            width: 56px;
+            height: 56px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.5rem;
+            font-size: 1.35rem;
             color: #ffffff;
             flex-shrink: 0;
-            transition: var(--transition-smooth);
-            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
-            position: relative;
+            transition: var(--transition);
+            box-shadow: 0 5px 16px rgba(0, 0, 0, 0.1);
         }
         .service-card:hover .service-icon-circle {
             transform: scale(1.1);
-            box-shadow: 0 10px 28px rgba(0, 0, 0, 0.18);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.16);
         }
-
-        /* Glow ring on hover */
-        .service-icon-circle::after {
-            content: '';
-            position: absolute;
-            inset: -6px;
-            border-radius: 50%;
-            border: 2px solid transparent;
-            transition: var(--transition-smooth);
-            pointer-events: none;
-        }
-        .service-card:hover .service-icon-circle::after {
-            inset: -10px;
-            border-color: rgba(79, 70, 229, 0.2);
-            animation: glowPulse 1.8s ease-in-out infinite;
-        }
-        @keyframes glowPulse {
-            0%,
-            100% {
-                border-color: rgba(79, 70, 229, 0.15);
-                box-shadow: 0 0 16px rgba(79, 70, 229, 0.08);
-            }
-            50% {
-                border-color: rgba(79, 70, 229, 0.35);
-                box-shadow: 0 0 28px rgba(79, 70, 229, 0.18);
-            }
-        }
-
         .service-card-name {
             font-weight: 600;
             font-size: var(--font-base);
             color: var(--text-primary);
             letter-spacing: -0.2px;
             line-height: 1.3;
-            transition: var(--transition-fast);
+            transition: var(--transition);
         }
         .service-card:hover .service-card-name {
             color: var(--brand-indigo);
         }
 
-        /* Top accent line */
-        .service-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 20%;
-            right: 20%;
-            height: 3px;
-            border-radius: 0 0 6px 6px;
-            background: transparent;
-            transition: var(--transition-smooth);
-        }
-        .service-card:hover::before {
-            left: 0;
-            right: 0;
-            border-radius: 0;
-            background: var(--brand-gradient);
-            height: 3px;
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+            gap: 1.2rem;
+            padding-bottom: 2rem;
         }
 
-        /* Footer */
+        .team-card {
+            background: var(--surface);
+            border-radius: var(--radius-lg);
+            padding: 1.5rem 1.2rem;
+            border: 1px solid rgba(226, 232, 240, 0.6);
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+            gap: 0.6rem;
+            position: relative;
+        }
+        .team-card:hover {
+            box-shadow: var(--shadow-lg);
+            border-color: rgba(79, 70, 229, 0.15);
+        }
+        .team-card-header {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
+        .team-avatar {
+            width: 52px;
+            height: 52px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+            color: #fff;
+            flex-shrink: 0;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+        .team-name-role {
+            display: flex;
+            flex-direction: column;
+        }
+        .team-name {
+            font-weight: 700;
+            font-size: var(--font-md);
+            color: var(--text-primary);
+            letter-spacing: -0.2px;
+        }
+        .team-role {
+            font-size: var(--font-xs);
+            color: var(--brand-indigo);
+            font-weight: 500;
+            line-height: 1.3;
+        }
+        .team-details {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.4rem;
+            font-size: var(--font-xs);
+            color: var(--text-secondary);
+        }
+        .team-details span {
+            background: #f1f5f9;
+            padding: 0.25rem 0.6rem;
+            border-radius: 14px;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.25rem;
+        }
+        .team-details span i {
+            color: var(--brand-indigo);
+            font-size: 0.65rem;
+        }
+        .contact-form-inline {
+            display: flex;
+            flex-direction: column;
+            gap: 0.45rem;
+            margin-top: 0.5rem;
+            padding-top: 0.7rem;
+            border-top: 1px solid #e2e8f0;
+        }
+        .contact-form-inline input,
+        .contact-form-inline textarea {
+            width: 100%;
+            padding: 0.5rem 0.7rem;
+            border: 1px solid #e2e8f0;
+            border-radius: var(--radius-sm);
+            font-family: 'Poppins', sans-serif;
+            font-size: var(--font-xs);
+            resize: vertical;
+            transition: var(--transition);
+            background: #f8fafc;
+            color: var(--text-primary);
+        }
+        .contact-form-inline input:focus,
+        .contact-form-inline textarea:focus {
+            outline: none;
+            border-color: var(--brand-indigo);
+            box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.08);
+            background: #fff;
+        }
+        .contact-form-inline textarea {
+            min-height: 50px;
+            max-height: 100px;
+        }
+        .btn-whatsapp {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.4rem;
+            background: #25D366;
+            color: #fff;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-weight: 600;
+            font-size: var(--font-xs);
+            cursor: pointer;
+            transition: var(--transition);
+            text-decoration: none;
+            width: 100%;
+            letter-spacing: 0.2px;
+        }
+        .btn-whatsapp:hover {
+            background: #1ebe5b;
+            box-shadow: 0 6px 18px rgba(37, 211, 102, 0.3);
+        }
+        .btn-whatsapp i {
+            font-size: 0.9rem;
+        }
+
         .site-footer {
             text-align: center;
-            padding: 1.5rem 1rem;
+            padding: 1.4rem 1rem;
             border-top: 1px solid #e2e8f0;
             color: var(--text-muted);
             font-size: var(--font-xs);
-            position: relative;
-            z-index: 1;
             background: rgba(255, 255, 255, 0.5);
             backdrop-filter: blur(8px);
             -webkit-backdrop-filter: blur(8px);
+            position: relative;
+            z-index: 1;
         }
         .site-footer strong {
             color: var(--text-secondary);
             font-weight: 600;
         }
+        .footer-links {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1.2rem;
+            margin-top: 0.5rem;
+            font-size: var(--font-xs);
+        }
+        .footer-links a {
+            color: var(--brand-indigo);
+            text-decoration: none;
+            font-weight: 500;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.3rem;
+        }
+        .footer-links a:hover {
+            text-decoration: underline;
+        }
 
-        /* Back to top button */
         .back-to-top {
             position: fixed;
-            bottom: 24px;
-            right: 24px;
+            bottom: 22px;
+            right: 22px;
             z-index: 200;
-            width: 44px;
-            height: 44px;
+            width: 40px;
+            height: 40px;
             border-radius: 50%;
             background: var(--surface);
             border: 1px solid #e2e8f0;
             color: var(--text-secondary);
-            font-size: 1.1rem;
+            font-size: 1rem;
             cursor: pointer;
             box-shadow: var(--shadow-lg);
-            transition: var(--transition-smooth);
+            transition: var(--transition);
             opacity: 0;
             transform: translateY(20px);
             pointer-events: none;
             display: flex;
             align-items: center;
             justify-content: center;
-            -webkit-tap-highlight-color: transparent;
         }
         .back-to-top.show {
             opacity: 1;
@@ -510,62 +540,42 @@
             background: var(--brand-indigo);
             color: #fff;
             border-color: var(--brand-indigo);
-            box-shadow: 0 8px 24px rgba(79, 70, 229, 0.35);
+            box-shadow: 0 8px 22px rgba(79, 70, 229, 0.3);
             transform: translateY(-3px);
         }
-        .back-to-top:active {
-            transform: scale(0.92);
-            transition: var(--transition-fast);
-        }
 
-        /* Reduced motion */
-        @media (prefers-reduced-motion: reduce) {
-            *,
-            *::before,
-            *::after {
-                animation-duration: 0.01ms !important;
-                animation-iteration-count: 1 !important;
-                transition-duration: 0.01ms !important;
-            }
-            html {
-                scroll-behavior: auto;
-            }
-            .service-card {
-                opacity: 1;
-                transform: none;
-            }
-        }
-
-        /* Responsive tweaks */
         @media (max-width: 480px) {
             .services-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 0.7rem;
+            }
+            .team-grid {
                 grid-template-columns: 1fr;
-                gap: 0.9rem;
             }
             .service-card {
-                padding: 1.25rem 1rem 1.1rem;
-                gap: 0.7rem;
+                padding: 1rem 0.7rem 0.9rem;
+                gap: 0.5rem;
                 border-radius: var(--radius-md);
             }
             .service-icon-circle {
-                width: 52px;
-                height: 52px;
-                font-size: 1.25rem;
+                width: 44px;
+                height: 44px;
+                font-size: 1.1rem;
             }
             .service-card-name {
-                font-size: var(--font-sm);
+                font-size: var(--font-xs);
             }
             .hero {
-                padding: 2.5rem 0.5rem 1.5rem;
+                padding: 2rem 0.5rem 1.2rem;
             }
             .header-inner {
-                padding: 0.5rem 0;
-                gap: 0.5rem;
+                padding: 0.4rem 0;
+                gap: 0.4rem;
             }
             .header-logo-icon {
                 width: 34px;
                 height: 34px;
-                font-size: 0.9rem;
+                font-size: 0.85rem;
             }
             .header-title {
                 font-size: var(--font-sm);
@@ -575,94 +585,54 @@
             }
             .header-tag {
                 font-size: 0.65rem;
-                padding: 0.3rem 0.6rem;
-            }
-            .back-to-top {
-                bottom: 16px;
-                right: 16px;
-                width: 38px;
-                height: 38px;
-                font-size: 0.95rem;
+                padding: 0.25rem 0.5rem;
             }
         }
 
         @media (min-width: 481px) and (max-width: 767px) {
             .services-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+            .team-grid {
                 grid-template-columns: repeat(2, 1fr);
-                gap: 1rem;
-            }
-            .service-card {
-                padding: 1.3rem 0.9rem 1.1rem;
-                gap: 0.7rem;
-            }
-            .service-icon-circle {
-                width: 54px;
-                height: 54px;
-                font-size: 1.3rem;
-            }
-            .service-card-name {
-                font-size: var(--font-sm);
             }
         }
 
         @media (min-width: 768px) and (max-width: 1023px) {
             .services-grid {
                 grid-template-columns: repeat(3, 1fr);
-                gap: 1.15rem;
+            }
+            .team-grid {
+                grid-template-columns: repeat(2, 1fr);
             }
         }
 
         @media (min-width: 1024px) {
             .services-grid {
                 grid-template-columns: repeat(4, 1fr);
-                gap: 1.3rem;
             }
-            .service-card {
-                padding: 1.7rem 1.3rem 1.5rem;
-                gap: 1rem;
-            }
-            .service-icon-circle {
-                width: 68px;
-                height: 68px;
-                font-size: 1.6rem;
-            }
-        }
-
-        @media (min-width: 1400px) {
-            .services-grid {
+            .team-grid {
                 grid-template-columns: repeat(4, 1fr);
-                gap: 1.5rem;
             }
         }
 
-        /* Print styles */
-        @media print {
-            .header,
-            .back-to-top,
-            .site-footer,
-            .bg-decoration {
-                display: none !important;
+        @media (prefers-reduced-motion: reduce) {
+            *,
+            *::before,
+            *::after {
+                animation-duration: 0.01ms !important;
+                transition-duration: 0.01ms !important;
             }
-            .service-card {
-                opacity: 1;
-                transform: none;
-                box-shadow: none;
-                border: 1px solid #ccc;
-                break-inside: avoid;
-            }
-            body {
-                background: #fff;
+            html {
+                scroll-behavior: auto;
             }
         }
     </style>
 </head>
 <body>
-    <!-- Background decorative orbs -->
     <div class="bg-decoration bg-orb-1" aria-hidden="true"></div>
     <div class="bg-decoration bg-orb-2" aria-hidden="true"></div>
-    <div class="bg-decoration bg-orb-3" aria-hidden="true"></div>
 
-    <!-- Sticky Header -->
     <header class="header" id="header" role="banner">
         <div class="header-inner">
             <a href="#" class="header-brand" aria-label="PDS Pak Digital Services - Home">
@@ -672,255 +642,248 @@
                     <span class="header-subtitle">Pak Digital Services</span>
                 </div>
             </a>
-            <span class="header-tag" aria-label="Available for service">
+            <span class="header-tag" aria-label="Available for inquiries">
                 <i class="fa-solid fa-circle" aria-hidden="true"></i> Available Now
             </span>
         </div>
     </header>
 
-    <!-- Main Content -->
     <main class="main-wrapper" id="main-content" role="main">
-        <!-- Hero Section -->
         <section class="hero" aria-labelledby="hero-heading">
             <span class="hero-badge" aria-hidden="true">
                 <i class="fa-solid fa-star"></i> Trusted Digital Partner
             </span>
-            <h1 class="hero-title" id="hero-heading">PDS &mdash; Pak Digital Services</h1>
-            <p class="hero-subtitle">Your one-stop destination for premium digital solutions, creative services, and professional online support.</p>
+            <h1 class="hero-title" id="hero-heading">PDS — Pak Digital Services</h1>
+            <p class="hero-subtitle">Your one‑stop destination for premium digital solutions, creative services, and professional online support.</p>
         </section>
 
-        <!-- Services Section -->
         <section aria-labelledby="services-heading">
             <div class="section-heading">
                 <h2 class="section-heading-title" id="services-heading">Our Services</h2>
             </div>
-
             <div class="services-grid" id="servicesGrid">
-                <!-- Card 1: Courses Provide -->
                 <article class="service-card" tabindex="0" aria-label="Courses Provide">
-                    <div class="service-icon-circle" style="background: linear-gradient(135deg, #6366f1 0%, #818cf8 100%);" aria-hidden="true">
-                        <i class="fa-solid fa-graduation-cap"></i>
-                    </div>
+                    <div class="service-icon-circle" style="background:linear-gradient(135deg,#6366f1,#818cf8);" aria-hidden="true"><i class="fa-solid fa-graduation-cap"></i></div>
                     <span class="service-card-name">Courses Provide</span>
                 </article>
-
-                <!-- Card 2: Graphics Design -->
                 <article class="service-card" tabindex="0" aria-label="Graphics Design">
-                    <div class="service-icon-circle" style="background: linear-gradient(135deg, #ec4899 0%, #f472b6 100%);" aria-hidden="true">
-                        <i class="fa-solid fa-paint-brush"></i>
-                    </div>
+                    <div class="service-icon-circle" style="background:linear-gradient(135deg,#ec4899,#f472b6);" aria-hidden="true"><i class="fa-solid fa-paint-brush"></i></div>
                     <span class="service-card-name">Graphics Design</span>
                 </article>
-
-                <!-- Card 3: Video Editor -->
                 <article class="service-card" tabindex="0" aria-label="Video Editor">
-                    <div class="service-icon-circle" style="background: linear-gradient(135deg, #f43f5e 0%, #fb7185 100%);" aria-hidden="true">
-                        <i class="fa-solid fa-video"></i>
-                    </div>
+                    <div class="service-icon-circle" style="background:linear-gradient(135deg,#f43f5e,#fb7185);" aria-hidden="true"><i class="fa-solid fa-video"></i></div>
                     <span class="service-card-name">Video Editor</span>
                 </article>
-
-                <!-- Card 4: Web Development -->
                 <article class="service-card" tabindex="0" aria-label="Web Development">
-                    <div class="service-icon-circle" style="background: linear-gradient(135deg, #0ea5e9 0%, #38bdf8 100%);" aria-hidden="true">
-                        <i class="fa-solid fa-laptop-code"></i>
-                    </div>
+                    <div class="service-icon-circle" style="background:linear-gradient(135deg,#0ea5e9,#38bdf8);" aria-hidden="true"><i class="fa-solid fa-laptop-code"></i></div>
                     <span class="service-card-name">Web Development</span>
                 </article>
-
-                <!-- Card 5: Content Writer -->
                 <article class="service-card" tabindex="0" aria-label="Content Writer">
-                    <div class="service-icon-circle" style="background: linear-gradient(135deg, #f97316 0%, #fb923c 100%);" aria-hidden="true">
-                        <i class="fa-solid fa-feather-pointed"></i>
-                    </div>
+                    <div class="service-icon-circle" style="background:linear-gradient(135deg,#f97316,#fb923c);" aria-hidden="true"><i class="fa-solid fa-feather-pointed"></i></div>
                     <span class="service-card-name">Content Writer</span>
                 </article>
-
-                <!-- Card 6: Digital Marketing -->
                 <article class="service-card" tabindex="0" aria-label="Digital Marketing">
-                    <div class="service-icon-circle" style="background: linear-gradient(135deg, #14b8a6 0%, #2dd4bf 100%);" aria-hidden="true">
-                        <i class="fa-solid fa-bullhorn"></i>
-                    </div>
+                    <div class="service-icon-circle" style="background:linear-gradient(135deg,#14b8a6,#2dd4bf);" aria-hidden="true"><i class="fa-solid fa-bullhorn"></i></div>
                     <span class="service-card-name">Digital Marketing</span>
                 </article>
-
-                <!-- Card 7: Social Like, View, Follower -->
                 <article class="service-card" tabindex="0" aria-label="Social Like, View, Follower">
-                    <div class="service-icon-circle" style="background: linear-gradient(135deg, #8b5cf6 0%, #a78bfa 100%);" aria-hidden="true">
-                        <i class="fa-solid fa-share-nodes"></i>
-                    </div>
+                    <div class="service-icon-circle" style="background:linear-gradient(135deg,#8b5cf6,#a78bfa);" aria-hidden="true"><i class="fa-solid fa-share-nodes"></i></div>
                     <span class="service-card-name">Social Like, View, Follower</span>
                 </article>
-
-                <!-- Card 8: AI Prompt -->
                 <article class="service-card" tabindex="0" aria-label="AI Prompt">
-                    <div class="service-icon-circle" style="background: linear-gradient(135deg, #3b82f6 0%, #60a5fa 100%);" aria-hidden="true">
-                        <i class="fa-solid fa-robot"></i>
-                    </div>
+                    <div class="service-icon-circle" style="background:linear-gradient(135deg,#3b82f6,#60a5fa);" aria-hidden="true"><i class="fa-solid fa-robot"></i></div>
                     <span class="service-card-name">AI Prompt</span>
                 </article>
-
-                <!-- Card 9: 3D Animation -->
                 <article class="service-card" tabindex="0" aria-label="3D Animation">
-                    <div class="service-icon-circle" style="background: linear-gradient(135deg, #a855f7 0%, #c084fc 100%);" aria-hidden="true">
-                        <i class="fa-solid fa-cubes"></i>
-                    </div>
+                    <div class="service-icon-circle" style="background:linear-gradient(135deg,#a855f7,#c084fc);" aria-hidden="true"><i class="fa-solid fa-cubes"></i></div>
                     <span class="service-card-name">3D Animation</span>
                 </article>
-
-                <!-- Card 10: Netflix, Prime Screen -->
                 <article class="service-card" tabindex="0" aria-label="Netflix, Prime Screen">
-                    <div class="service-icon-circle" style="background: linear-gradient(135deg, #eab308 0%, #facc15 100%);" aria-hidden="true">
-                        <i class="fa-solid fa-tv"></i>
-                    </div>
+                    <div class="service-icon-circle" style="background:linear-gradient(135deg,#eab308,#facc15);" aria-hidden="true"><i class="fa-solid fa-tv"></i></div>
                     <span class="service-card-name">Netflix, Prime Screen</span>
                 </article>
-
-                <!-- Card 11: Online Classes -->
                 <article class="service-card" tabindex="0" aria-label="Online Classes">
-                    <div class="service-icon-circle" style="background: linear-gradient(135deg, #22c55e 0%, #4ade80 100%);" aria-hidden="true">
-                        <i class="fa-solid fa-chalkboard-user"></i>
-                    </div>
+                    <div class="service-icon-circle" style="background:linear-gradient(135deg,#22c55e,#4ade80);" aria-hidden="true"><i class="fa-solid fa-chalkboard-user"></i></div>
                     <span class="service-card-name">Online Classes</span>
                 </article>
-
-                <!-- Card 12: Certificates -->
                 <article class="service-card" tabindex="0" aria-label="Certificates">
-                    <div class="service-icon-circle" style="background: linear-gradient(135deg, #06b6d4 0%, #22d3ee 100%);" aria-hidden="true">
-                        <i class="fa-solid fa-certificate"></i>
-                    </div>
+                    <div class="service-icon-circle" style="background:linear-gradient(135deg,#06b6d4,#22d3ee);" aria-hidden="true"><i class="fa-solid fa-certificate"></i></div>
                     <span class="service-card-name">Certificates</span>
                 </article>
-
-                <!-- Card 13: Team Support Assistant -->
                 <article class="service-card" tabindex="0" aria-label="Team Support Assistant">
-                    <div class="service-icon-circle" style="background: linear-gradient(135deg, #ef4444 0%, #f87171 100%);" aria-hidden="true">
-                        <i class="fa-solid fa-headset"></i>
-                    </div>
+                    <div class="service-icon-circle" style="background:linear-gradient(135deg,#ef4444,#f87171);" aria-hidden="true"><i class="fa-solid fa-headset"></i></div>
                     <span class="service-card-name">Team Support Assistant</span>
                 </article>
             </div>
         </section>
+
+        <section aria-labelledby="team-heading">
+            <div class="section-heading">
+                <span class="section-heading-label">Our Team</span>
+            </div>
+            <div class="team-grid" id="teamGrid">
+                <!-- Atif Hussain -->
+                <div class="team-card" id="team-atif">
+                    <div class="team-card-header">
+                        <div class="team-avatar" style="background:linear-gradient(135deg,#4f46e5,#7c3aed);" aria-hidden="true"><i class="fa-solid fa-user-tie"></i></div>
+                        <div class="team-name-role">
+                            <span class="team-name">CEO Atif Hussain</span>
+                            <span class="team-role">Graphics Designer, Video, Course Provide</span>
+                        </div>
+                    </div>
+                    <div class="team-details">
+                        <span><i class="fa-solid fa-location-dot"></i> Karachi</span>
+                        <span><i class="fa-solid fa-calendar"></i> 25 yrs</span>
+                        <span>District: Korangi</span>
+                    </div>
+                    <div class="contact-form-inline">
+                        <input type="text" id="subject-atif" placeholder="Subject (e.g. Graphic Design Project)" aria-label="Subject for Atif Hussain">
+                        <textarea id="desc-atif" placeholder="Describe your requirement..." aria-label="Description for Atif Hussain"></textarea>
+                        <button class="btn-whatsapp" onclick="openWhatsApp('+923043873590', 'Atif Hussain', 'subject-atif', 'desc-atif')">
+                            <i class="fa-brands fa-whatsapp"></i> Chat on WhatsApp
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Ayaz Afandi -->
+                <div class="team-card" id="team-ayaz">
+                    <div class="team-card-header">
+                        <div class="team-avatar" style="background:linear-gradient(135deg,#0ea5e9,#38bdf8);" aria-hidden="true"><i class="fa-solid fa-chalkboard-user"></i></div>
+                        <div class="team-name-role">
+                            <span class="team-name">Ayaz Afandi</span>
+                            <span class="team-role">Teacher (Urdu, Class 1–12)</span>
+                        </div>
+                    </div>
+                    <div class="team-details">
+                        <span><i class="fa-solid fa-location-dot"></i> Kot Addo</span>
+                        <span><i class="fa-solid fa-calendar"></i> 25 yrs</span>
+                        <span>Tehseel: Kot Addo</span>
+                        <span>District: Muzaffar Garh</span>
+                    </div>
+                    <div class="contact-form-inline">
+                        <input type="text" id="subject-ayaz" placeholder="Subject (e.g. Urdu Tuition)" aria-label="Subject for Ayaz Afandi">
+                        <textarea id="desc-ayaz" placeholder="Describe your requirement..." aria-label="Description for Ayaz Afandi"></textarea>
+                        <button class="btn-whatsapp" onclick="openWhatsApp('+923146504872', 'Ayaz Afandi', 'subject-ayaz', 'desc-ayaz')">
+                            <i class="fa-brands fa-whatsapp"></i> Chat on WhatsApp
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Hussain -->
+                <div class="team-card" id="team-hussain">
+                    <div class="team-card-header">
+                        <div class="team-avatar" style="background:linear-gradient(135deg,#f43f5e,#fb7185);" aria-hidden="true"><i class="fa-solid fa-chart-simple"></i></div>
+                        <div class="team-name-role">
+                            <span class="team-name">Hussain</span>
+                            <span class="team-role">Social Master — Likes, Views, Monetization, Netflix/Prime Screen</span>
+                        </div>
+                    </div>
+                    <div class="team-details">
+                        <span><i class="fa-solid fa-location-dot"></i> Nws</span>
+                        <span><i class="fa-solid fa-calendar"></i> 20 yrs</span>
+                        <span>Tehseel: Nws</span>
+                        <span>District: Nws SBA</span>
+                    </div>
+                    <div class="contact-form-inline">
+                        <input type="text" id="subject-hussain" placeholder="Subject (e.g. Social Growth)" aria-label="Subject for Hussain">
+                        <textarea id="desc-hussain" placeholder="Describe your requirement..." aria-label="Description for Hussain"></textarea>
+                        <button class="btn-whatsapp" onclick="openWhatsApp('+923702160160', 'Hussain', 'subject-hussain', 'desc-hussain')">
+                            <i class="fa-brands fa-whatsapp"></i> Chat on WhatsApp
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Mudasir Wazir -->
+                <div class="team-card" id="team-mudasir">
+                    <div class="team-card-header">
+                        <div class="team-avatar" style="background:linear-gradient(135deg,#22c55e,#4ade80);" aria-hidden="true"><i class="fa-solid fa-code"></i></div>
+                        <div class="team-name-role">
+                            <span class="team-name">Mudasir Wazir</span>
+                            <span class="team-role">Python, Web Dev, Vibe Coding, AI Prompt Engineering</span>
+                        </div>
+                    </div>
+                    <div class="team-details">
+                        <span><i class="fa-solid fa-location-dot"></i> RYK</span>
+                        <span><i class="fa-solid fa-calendar"></i> 16 yrs</span>
+                    </div>
+                    <div class="contact-form-inline">
+                        <input type="text" id="subject-mudasir" placeholder="Subject (e.g. Web Project)" aria-label="Subject for Mudasir Wazir">
+                        <textarea id="desc-mudasir" placeholder="Describe your requirement..." aria-label="Description for Mudasir Wazir"></textarea>
+                        <button class="btn-whatsapp" onclick="openWhatsApp('+923073477752', 'Mudasir Wazir', 'subject-mudasir', 'desc-mudasir')">
+                            <i class="fa-brands fa-whatsapp"></i> Chat on WhatsApp
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
     </main>
 
-    <!-- Footer -->
     <footer class="site-footer" role="contentinfo">
-        <p>&copy; <span id="currentYear"></span> <strong>PDS &mdash; Pak Digital Services</strong>. All rights reserved. Crafted with care.</p>
+        <p>&copy; <span id="currentYear"></span> <strong>PDS — Pak Digital Services</strong>. All rights reserved.</p>
+        <div class="footer-links">
+            <a href="https://whatsapp.com/channel/0029Vb8Y01X35fM3067SFe2i" target="_blank" rel="noopener noreferrer">
+                <i class="fa-brands fa-whatsapp"></i> WhatsApp Channel
+            </a>
+            <span>|</span>
+            <span><i class="fa-solid fa-phone"></i> +92 304 3873590</span>
+        </div>
     </footer>
 
-    <!-- Back to Top Button -->
     <button class="back-to-top" id="backToTop" aria-label="Back to top" title="Back to top">
         <i class="fa-solid fa-chevron-up" aria-hidden="true"></i>
     </button>
 
     <script>
         (function() {
-            // Set current year
             document.getElementById('currentYear').textContent = new Date().getFullYear();
 
-            // DOM references
             const header = document.getElementById('header');
             const backToTop = document.getElementById('backToTop');
-            const serviceCards = document.querySelectorAll('.service-card');
-            const servicesGrid = document.getElementById('servicesGrid');
 
-            // Intersection Observer for card animations
-            const observerOptions = {
-                root: null,
-                rootMargin: '0px 0px -40px 0px',
-                threshold: 0.1,
-            };
-
-            const cardObserver = new IntersectionObserver((entries) => {
-                entries.forEach((entry, index) => {
-                    if (entry.isIntersecting) {
-                        // Stagger the animation
-                        const card = entry.target;
-                        const cardIndex = Array.from(serviceCards).indexOf(card);
-                        const delay = cardIndex * 60; // 60ms stagger
-                        setTimeout(() => {
-                            card.classList.add('visible');
-                        }, delay);
-                        cardObserver.unobserve(card);
-                    }
-                });
-            }, observerOptions);
-
-            serviceCards.forEach((card) => {
-                cardObserver.observe(card);
-            });
-
-            // Header shadow on scroll
             let scrollTicking = false;
             const handleScroll = () => {
                 if (!scrollTicking) {
                     requestAnimationFrame(() => {
                         const scrollY = window.scrollY || window.pageYOffset;
-                        if (scrollY > 10) {
-                            header.classList.add('scrolled');
-                        } else {
-                            header.classList.remove('scrolled');
-                        }
-
-                        // Back to top visibility
-                        if (scrollY > 500) {
-                            backToTop.classList.add('show');
-                        } else {
-                            backToTop.classList.remove('show');
-                        }
+                        header.classList.toggle('scrolled', scrollY > 10);
+                        backToTop.classList.toggle('show', scrollY > 500);
                         scrollTicking = false;
                     });
                     scrollTicking = true;
                 }
             };
-
             window.addEventListener('scroll', handleScroll, { passive: true });
-
-            // Back to top click
-            backToTop.addEventListener('click', () => {
-                window.scrollTo({ top: 0, behavior: 'smooth' });
-            });
-
-            // Keyboard support for cards (Enter/Space to trigger hover-like feedback)
-            serviceCards.forEach((card) => {
-                card.addEventListener('keydown', (e) => {
-                    if (e.key === 'Enter' || e.key === ' ') {
-                        e.preventDefault();
-                        // Brief visual feedback
-                        card.style.transform = 'scale(0.96)';
-                        card.style.boxShadow =
-                            '0 20px 40px -8px rgba(0,0,0,0.12), 0 0 0 4px rgba(79,70,229,0.1)';
-                        setTimeout(() => {
-                            card.style.transform = '';
-                            card.style.boxShadow = '';
-                        }, 180);
-                        // Also trigger focus visible styles
-                        card.focus();
-                    }
-                });
-            });
-
-            // Initial check for scroll position on load
+            backToTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
             handleScroll();
+        })();
 
-            // Handle service card hover for touch devices (add a subtle class)
-            if (window.matchMedia('(hover: hover)').matches) {
-                // Mouse devices get full hover effects - no extra handling needed
-            } else {
-                // Touch devices: ensure cards are visible immediately
-                serviceCards.forEach((card) => {
-                    card.classList.add('visible');
-                });
-                // Also unobserve all since they're already visible
-                cardObserver.disconnect();
+        function openWhatsApp(phone, memberName, subjectId, descId) {
+            const subjectEl = document.getElementById(subjectId);
+            const descEl = document.getElementById(descId);
+            const subject = subjectEl ? subjectEl.value.trim() : '';
+            const desc = descEl ? descEl.value.trim() : '';
+
+            let messageParts = [];
+            messageParts.push(`*PDS — Pak Digital Services*`);
+            messageParts.push(`*Team Member:* ${memberName}`);
+
+            if (subject) {
+                messageParts.push(`*Subject:* ${subject}`);
+            }
+            if (desc) {
+                messageParts.push(`*Description:* ${desc}`);
+            }
+            if (!subject && !desc) {
+                messageParts.push(`_No details provided — reaching out for inquiry._`);
             }
 
-            // Accessibility: ensure all interactive cards are reachable
-            servicesGrid.setAttribute('role', 'list');
-            serviceCards.forEach((card) => {
-                card.setAttribute('role', 'listitem');
-            });
-        })();
+            const fullMessage = messageParts.join('\n');
+            const encoded = encodeURIComponent(fullMessage);
+            const cleanPhone = phone.replace(/[\s\-\(\)]/g, '');
+
+            const whatsappUrl = `https://wa.me/${cleanPhone}?text=${encoded}`;
+            window.open(whatsappUrl, '_blank', 'noopener,noreferrer');
+        }
     </script>
 </body>
 </html>
