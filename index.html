@@ -24,14 +24,14 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="PDS - Pak Digital Services">
     <meta name="twitter:description" content="Premium digital solutions for your business and personal growth.">
-    <meta name="twitter:image" content="/banner.png">
+    <meta name="twitter:image" content="https://pak-digital-services.pages.dev/banner.png">
 
     <!-- PWA Meta Tags -->
     <link rel="icon" href="/favicon.svg" sizes="48x48">
-    <link rel="icon" href="/icons/icon-192x192.png" type="image/png" sizes="192x192">
-    <link rel="icon" href="/icons/icon-512x512.png" type="image/png" sizes="512x512">
-    <link rel="apple-touch-icon" href="/icons/icon-180x180.png">
-    <link rel="manifest" href="/manifest.json">
+    <link rel="icon" href="https://pak-digital-services.pages.dev/icons/icon-192x192.png" type="image/png" sizes="192x192">
+    <link rel="icon" href="https://pak-digital-services.pages.dev/icons/icon-512x512.png" type="image/png" sizes="512x512">
+    <link rel="apple-touch-icon" href="https://pak-digital-services.pages.dev/icons/icon-180x180.png">
+    <link rel="manifest" href="https://pak-digital-services.pages.dev/manifest.json">
     <meta name="theme-color" content="#4f46e5">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="default">
@@ -512,7 +512,7 @@
         // Service Worker registration
         if ('serviceWorker' in navigator) {
             window.addEventListener('load', () => {
-                navigator.serviceWorker.register('/sw.js')
+                navigator.serviceWorker.register('https://pak-digital-services.pages.dev/sw.js')
                     .then(reg => console.log('SW registered:', reg.scope))
                     .catch(err => console.log('SW registration failed:', err));
             });
