@@ -26,10 +26,9 @@
     <meta name="twitter:description" content="Premium digital solutions for your business and personal growth.">
     <meta name="twitter:image" content="/banner.png">
 
-    <!-- PWA Meta Tags -->
-    <link rel="icon" href="/favicon.svg" sizes="48x48">
-    <link rel="icon" href="/icons/icon-192x192.png" type="image/png" sizes="192x192">
-    <link rel="icon" href="/icons/icon-512x512.png" type="image/png" sizes="512x512">
+    <!-- PWA & Favicon Meta Tags using external SVG -->
+    <link rel="icon" href="https://pak-digital-services.pages.dev/favicon.svg" sizes="any" type="image/svg+xml">
+    <link rel="alternate icon" href="/favicon.ico" type="image/x-icon">
     <link rel="apple-touch-icon" href="/icons/icon-180x180.png">
     <link rel="manifest" href="/manifest.json">
     <meta name="theme-color" content="#4f46e5">
@@ -103,11 +102,19 @@
             padding: 0.7rem 0; gap: 0.8rem; flex-wrap: wrap;
         }
         .header-brand { display: flex; align-items: center; gap: 0.55rem; text-decoration: none; color: var(--text-primary); flex-shrink: 0; }
-        .header-logo-icon {
-            width: 40px; height: 40px; background: var(--brand-gradient); border-radius: var(--radius-sm);
-            display: flex; align-items: center; justify-content: center; color: #fff; font-weight: 700; font-size: 1rem;
-            letter-spacing: -0.5px; box-shadow: 0 4px 12px rgba(79,70,229,0.3);
+        
+        /* External SVG Logo styling */
+        .header-logo-svg {
+            height: 44px;
+            width: auto;
+            display: block;
+            filter: drop-shadow(0 2px 6px rgba(79, 70, 229, 0.15));
+            transition: transform var(--transition);
         }
+        .header-brand:hover .header-logo-svg {
+            transform: scale(1.02);
+        }
+        
         .header-title-group { line-height: 1.15; }
         .header-title { font-weight: 700; font-size: var(--font-md); letter-spacing: -0.3px; white-space: nowrap; }
         .header-subtitle { font-size: var(--font-xs); color: var(--text-secondary); white-space: nowrap; }
@@ -179,7 +186,6 @@
         }
         .service-card:hover .service-card-name { color: var(--brand-indigo); }
 
-        /* Team section (simplified) */
         .team-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
@@ -231,7 +237,6 @@
         }
         .team-city i { color: var(--brand-indigo); }
 
-        /* Contact Us section */
         .contact-us-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -320,7 +325,7 @@
             .service-card-name { font-size: var(--font-xs); }
             .hero { padding: 2rem 0.5rem 1.2rem; }
             .header-inner { padding: 0.4rem 0; gap: 0.4rem; }
-            .header-logo-icon { width: 34px; height: 34px; font-size: 0.85rem; }
+            .header-logo-svg { height: 34px; }
             .header-title { font-size: var(--font-sm); }
             .header-subtitle { font-size: 0.65rem; }
             .header-tag { font-size: 0.65rem; padding: 0.25rem 0.5rem; }
@@ -357,7 +362,8 @@
     <header class="header" id="header" role="banner">
         <div class="header-inner">
             <a href="#" class="header-brand" aria-label="PDS Pak Digital Services - Home">
-                <div class="header-logo-icon" aria-hidden="true">PDS</div>
+                <!-- External SVG Logo from provided URL -->
+                <img class="header-logo-svg" src="https://pak-digital-services.pages.dev/favicon.svg" alt="Pak Digital Services Logo" onerror="this.style.opacity='0'; this.parentElement.style.gap='0';">
                 <div class="header-title-group">
                     <span class="header-title">PDS</span>
                     <span class="header-subtitle">Pak Digital Services</span>
@@ -370,7 +376,7 @@
     </header>
 
     <main class="main-wrapper" id="main-content" role="main">
-        <!-- Hero -->
+        <!-- Hero section -->
         <section class="hero" aria-labelledby="hero-heading">
             <span class="hero-badge" aria-hidden="true">
                 <i class="fa-solid fa-star"></i> Trusted Digital Partner
@@ -440,7 +446,7 @@
             </div>
         </section>
 
-        <!-- Team (simplified – only name, role, city) -->
+        <!-- Team PDS -->
         <section aria-labelledby="team-heading">
             <div class="section-heading">
                 <h2 class="section-heading-title" id="team-heading">Team PDS</h2>
@@ -479,25 +485,21 @@
                 <h2 class="section-heading-title" id="contact-heading">Contact Us</h2>
             </div>
             <div class="contact-us-grid">
-                <!-- Facebook -->
                 <a href="https://www.facebook.com/share/1GfYPYoWuv/" target="_blank" rel="noopener noreferrer" class="contact-item">
                     <div class="contact-icon"><i class="fa-brands fa-facebook-f"></i></div>
                     <span class="contact-platform">Facebook</span>
                     <span class="contact-detail">/PakDigitalServices</span>
                 </a>
-                <!-- WhatsApp 1 -->
                 <a href="https://wa.me/923702160160" target="_blank" rel="noopener noreferrer" class="contact-item">
                     <div class="contact-icon"><i class="fa-brands fa-whatsapp"></i></div>
                     <span class="contact-platform">WhatsApp</span>
                     <span class="contact-detail">+92 370 2160160</span>
                 </a>
-                <!-- WhatsApp 2 -->
                 <a href="https://wa.me/923043873590" target="_blank" rel="noopener noreferrer" class="contact-item">
                     <div class="contact-icon"><i class="fa-brands fa-whatsapp"></i></div>
                     <span class="contact-platform">WhatsApp</span>
                     <span class="contact-detail">0304 3873590</span>
                 </a>
-                <!-- WhatsApp Channel -->
                 <a href="https://whatsapp.com/channel/0029Vb8Y01X35fM3067SFe2i" target="_blank" rel="noopener noreferrer" class="contact-item">
                     <div class="contact-icon"><i class="fa-brands fa-whatsapp"></i></div>
                     <span class="contact-platform">WhatsApp Channel</span>
